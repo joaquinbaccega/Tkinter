@@ -1,0 +1,21 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
+from tkinter.font import BOLD
+import util.generic as utl
+from forms.master.form_master import MasterPanel
+from forms.login.form_login_designer import FormLoginDesigner
+
+class FormLogin(FormLoginDesigner):
+    
+    def verificar(self):
+        usu = self.usuario.get()
+        password = self.password.get()        
+        if(usu == "root" and password == "1234") :
+            self.ventana.destroy()
+            MasterPanel()
+        else:
+            messagebox.showerror(message="La contraseña no es correcta",title="Mensaje")  
+
+    def __init__(self):
+        super().__init__()
+        # self.ventana.mainloop()
